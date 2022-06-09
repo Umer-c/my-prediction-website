@@ -6,7 +6,7 @@ import datetime
 import requests
 
 '''
-# Dispatcher Website front
+# Dispatcher Website
 '''
 
 st.markdown('''
@@ -43,4 +43,4 @@ prediction = response.json()
 
 pred = prediction['Prediction']
 
-print(f"The expected FHA dely is {pred} days.")
+st.print(f"The expected FHA dely is {pred} days.")
