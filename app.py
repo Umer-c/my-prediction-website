@@ -51,15 +51,17 @@ prediction = response.json()
 
 pred = int(prediction['Prediction'])
 
-
 st.write("The expected FHA delay is ", pred, " days.")
 
 a = int(pickup_date.strftime("%Y%m%d"))
 
 new_var = int(pred + a)
-#pickup_date
-#type(pickup_date)
 
 st.write("The shipment is expected to be picked up by the Truck arriving on", new_var, "at the first hub scan location.")
-#"""The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
-#at the first hub scan location."""
+def load_lottieurl_1(url: str):
+    r_1 = requests.get(url)
+    if r_1.status_code != 200:
+        return None
+    return r_1.json()
+lottie_hello_1 = load_lottieurl_1("https://assets9.lottiefiles.com/packages/lf20_Fr8Ziv.json")
+st_lottie(lottie_hello_1, key="hello_1")
