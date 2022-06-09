@@ -6,6 +6,10 @@ import datetime
 
 import requests
 
+'''
+# Dispatcher Prediction Website
+'''
+
 def load_lottieurl(url: str):
     r = requests.get(url)
     if r.status_code != 200:
@@ -15,13 +19,7 @@ lottie_hello = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_bqo
 st_lottie(lottie_hello, key="hello")
 
 
-'''
-# Dispatcher Website
-'''
 
-st.markdown('''
-We need to fill in the required fields to predict
-''')
 
 warehouse_id = st.number_input('Warehouse Id')#, value=673)
 relation_distance = st.number_input('Relation Distance')#, value=559.70127)
@@ -56,12 +54,12 @@ pred = int(prediction['Prediction'])
 
 st.write("The expected FHA delay is ", pred, " days.")
 
-a = int(pickup_date.strftime('%Y%m%d'))
+#a = int(pickup_date.strftime('%Y%m%d'))
 
-new_var = int(pred + a)
+#new_var = int(pred + a)
 #pickup_date
 #type(pickup_date)
 
-st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
-"""The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
-at the first hub scan location."""
+#st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
+#"""The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
+#at the first hub scan location."""
