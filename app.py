@@ -1,9 +1,19 @@
 from urllib import response
 import streamlit as st
-
+from streamlit_lottie import st_lottie
+import json
 import datetime
 
 import requests
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+lottie_hello = load_lottieurl("https://assets2.lottiefiles.com/packages/lf20_bqojdbmn.json")
+st_lottie(lottie_hello, key="hello")
+
 
 '''
 # Dispatcher Website
@@ -46,9 +56,12 @@ pred = int(prediction['Prediction'])
 
 st.write("The expected FHA delay is ", pred, " days.")
 
-new_var = int(pred + int(pickup_date))
-pickup_date
-type(pickup_date)
+a = int(pickup_date.strftime('%Y%m%d'))
+
+new_var = int(pred + a)
+#pickup_date
+#type(pickup_date)
+
 st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
 """The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
 at the first hub scan location."""
