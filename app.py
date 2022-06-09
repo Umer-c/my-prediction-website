@@ -46,7 +46,9 @@ pred = int(prediction['Prediction'])
 
 st.write("The expected FHA delay is ", pred, " days.")
 
-new_var = int(pred + planned_pickup_timestamp)
+new_var = int(pred + int(pickup_date))
+pickup_date
+type(pickup_date)
 st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
 """The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
 at the first hub scan location."""
