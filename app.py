@@ -41,7 +41,7 @@ response = requests.get(url, params=params)
 
 prediction = response.json()
 
-pred = prediction['Prediction']
+pred = int(prediction['Prediction'])
 
 #print(f"The expected FHA delay is {pred} days.")
 st.write("The expected FHA delay is ", pred, " days.")
