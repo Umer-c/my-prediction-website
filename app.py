@@ -42,4 +42,5 @@ response = requests.get(url, params=params)
 prediction = response.json()
 
 pred = prediction['Prediction']
-pred
+
+print(f"The expected FHA dely is {pred} days.")
