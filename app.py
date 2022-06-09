@@ -16,12 +16,12 @@ We need to fill in the required fields to predict
 warehouse_id = st.number_input('Warehouse Id')#, value=673)
 relation_distance = st.number_input('Relation Distance')#, value=559.70127)
 carrier_company_id = st.number_input('Carrier Company ID')#, value=673)
-pickup_date = st.date_input('pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
-pickup_time = st.time_input('pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+pickup_date = st.date_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+pickup_time = st.time_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 planned_pickup_timestamp = f'{pickup_date} {pickup_time}'
 
-shipment_created_date = st.date_input('shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
-shipment_created_time = st.time_input('shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+shipment_created_date = st.date_input('Shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+shipment_created_time = st.time_input('Shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 timestamp_created_at_shipment = f'{shipment_created_date} {shipment_created_time}'
 
 
@@ -43,5 +43,10 @@ prediction = response.json()
 
 pred = int(prediction['Prediction'])
 
-#print(f"The expected FHA delay is {pred} days.")
+
 st.write("The expected FHA delay is ", pred, " days.")
+
+new_var = int(pred + planned_pickup_timestamp)
+st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
+"""The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
+at the first hub scan location."""
