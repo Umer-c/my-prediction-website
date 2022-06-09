@@ -43,4 +43,5 @@ prediction = response.json()
 
 pred = prediction['Prediction']
 
-print(f"The expected FHA dely is {pred} days.")
+#print(f"The expected FHA delay is {pred} days.")
+st.write("The expected FHA delay is ", pred, " days.")
