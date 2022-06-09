@@ -21,15 +21,15 @@ st_lottie(lottie_hello, key="hello")
 
 
 
-warehouse_id = st.number_input('Warehouse Id')#, value=673)
-relation_distance = st.number_input('Relation Distance')#, value=559.70127)
-carrier_company_id = st.number_input('Carrier Company ID')#, value=673)
+warehouse_id = st.number_input('Warehouse Id', min_value=0, value=0, step=1)#, value=673)
+relation_distance = st.number_input('Relation Distance', min_value=0, value=0, step=1)#, value=559.70127)
+carrier_company_id = st.number_input('Carrier Company ID', min_value=0, value=0, step=1)#, value=673)
 pickup_date = st.date_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 pickup_time = st.time_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 planned_pickup_timestamp = f'{pickup_date} {pickup_time}'
 
-shipment_created_date = st.date_input('Shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
-shipment_created_time = st.time_input('Shipment datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+shipment_created_date = st.date_input('Shipment Created datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
+shipment_created_time = st.time_input('Shipment Created datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 timestamp_created_at_shipment = f'{shipment_created_date} {shipment_created_time}'
 
 
@@ -54,12 +54,12 @@ pred = int(prediction['Prediction'])
 
 st.write("The expected FHA delay is ", pred, " days.")
 
-#a = int(pickup_date.strftime('%Y%m%d'))
+a = int(pickup_date.strftime("%Y%m%d"))
 
-#new_var = int(pred + a)
+new_var = int(pred + a)
 #pickup_date
 #type(pickup_date)
 
-#st.write("The shipment is expected to be picked up by the Truck arriving", new_var, "at the first hub scan location.")
+st.write("The shipment is expected to be picked up by the Truck arriving on", new_var, "at the first hub scan location.")
 #"""The shipment is expected to be picked up by the Truck arriving {created_at_date + prediction}
 #at the first hub scan location."""
