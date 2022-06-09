@@ -21,9 +21,9 @@ st_lottie(lottie_hello, key="hello")
 
 
 
-warehouse_id = st.number_input('Warehouse Id', min_value=0, value=0, step=1)#, value=673)
-relation_distance = st.number_input('Relation Distance', min_value=0, value=0, step=1)#, value=559.70127)
-carrier_company_id = st.number_input('Carrier Company ID', min_value=0, value=0, step=1)#, value=673)
+warehouse_id = st.number_input('Warehouse Id', min_value=0, value=2, step=1)#, value=673)
+relation_distance = st.number_input('Relation Distance', min_value=0, value=500, step=1)#, value=559.70127)
+carrier_company_id = st.number_input('Carrier Company ID', min_value=0, value=9, step=1)#, value=673)
 pickup_date = st.date_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 pickup_time = st.time_input('Pickup datetime')#, value=datetime.datetime(2012, 10, 6, 12, 10, 20))
 planned_pickup_timestamp = f'{pickup_date} {pickup_time}'
